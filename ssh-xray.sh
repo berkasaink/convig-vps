@@ -78,6 +78,19 @@ cd /etc/ssh
 rm sshd_config
 wget https://github.com/goenktea/idssh.my.id/raw/main/sshd_config.zip && unzip sshd_config.zip
 rm sshd_config.zip
+wget https://github.com/berkasaink/convig-vps/raw/main/tendang && chmod +x tendang && mv tendang /usr/bin
+sed -i '$ i\* * * * * root /usr/bin/tendang' /etc/crontab
+sed -i '$ i\* * * * * root sleep 5; /usr/bin/tendang' /etc/crontab
+sed -i '$ i\* * * * * root sleep 10; /usr/bin/tendang' /etc/crontab
+sed -i '$ i\* * * * * root sleep 15; /usr/bin/tendang' /etc/crontab
+sed -i '$ i\* * * * * root sleep 20; /usr/bin/tendang' /etc/crontab
+sed -i '$ i\* * * * * root sleep 25; /usr/bin/tendang' /etc/crontab
+sed -i '$ i\* * * * * root sleep 30; /usr/bin/tendang' /etc/crontab
+sed -i '$ i\* * * * * root sleep 35; /usr/bin/tendang' /etc/crontab
+sed -i '$ i\* * * * * root sleep 40; /usr/bin/tendang' /etc/crontab
+sed -i '$ i\* * * * * root sleep 45; /usr/bin/tendang' /etc/crontab
+sed -i '$ i\* * * * * root sleep 50; /usr/bin/tendang' /etc/crontab
+sed -i '$ i\* * * * * root sleep 55; /usr/bin/tendang' /etc/crontab
 cd /usr/bin
 wget https://github.com/goenktea/idssh.my.id/raw/main/menu.zip && unzip menu.zip && rm menu.zip
 #menu xray
@@ -97,6 +110,10 @@ mkdir conf.d
 cd conf.d
 wget https://raw.githubusercontent.com/berkasaink/convig-vps/main/xray.conf
 cd
+mkdir -p /etc/GoenkTea
+wget -P /etc/GoenkTea https://dl.dropboxusercontent.com/s/fwe1q64q6loig7z/cert.pem
+wget -P /etc/GoenkTea https://dl.dropboxusercontent.com/s/udy4h31t77jtoeu/key.key
+cat /etc/GoenkTea/* >> /etc/GoenkTea/stunnel.pem
 systemctl restart rc-local
 systemctl restart sslh
 systemctl restart nginx
