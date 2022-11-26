@@ -91,6 +91,12 @@ mv addray v2ray-add
 mv del-vmess v2ray-delete
 cp exp-vmess v2ray-expired
 cd
+cd /etc/nginx
+rm -r conf.d
+mkdir conf.d
+cd conf.d
+wget https://raw.githubusercontent.com/berkasaink/convig-vps/main/xray.conf
+cd
 systemctl restart rc-local
 systemctl restart sslh
 systemctl restart nginx
