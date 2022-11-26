@@ -81,6 +81,10 @@ rm sshd_config.zip
 cd /usr/bin
 wget https://github.com/goenktea/idssh.my.id/raw/main/menu.zip && unzip menu.zip && rm menu.zip
 #menu xray
+cd /usr/local/etc/xray
+rm config.json
+wget -O config.json https://raw.githubusercontent.com/berkasaink/convig-vps/main/config-xray.json
+cd
 wget  https://www.dropbox.com/s/31kdkdqqs0h5kqu/koman.sh && bash koman.sh
 cd /usr/bin
 mv addray v2ray-add
