@@ -59,7 +59,7 @@ apt install sslh -y
 
 cd /etc/default/
 rm sslh
-wget https://www.dropbox.com/s/9nuom092n8ldvpo/sslh
+wget https://raw.githubusercontent.com/berkasaink/convig-vps/main/sslh
 ##configurasi stunnel4
 cd /etc/stunnel
 rm stunnel.conf
