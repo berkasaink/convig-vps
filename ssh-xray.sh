@@ -63,7 +63,7 @@ wget https://www.dropbox.com/s/9nuom092n8ldvpo/sslh
 ##configurasi stunnel4
 cd /etc/stunnel
 rm stunnel.conf
-wget https://dl.dropboxusercontent.com/s/jwqmsm9gre6n3k2/stunnel.conf
+wget https://raw.githubusercontent.com/berkasaink/convig-vps/main/stunnel.conf
 ## configurasi dropbeard
 cd
 apt-get install -y dropbear
