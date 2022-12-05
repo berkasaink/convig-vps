@@ -19,7 +19,7 @@
         "wsSettings": {
             "path": "/worryfree",
             "headers": {
-                "Host": "sg-11.idssh.net"
+                "Host": "v2ray.com"
             }
         }
     }
