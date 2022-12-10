@@ -12,54 +12,25 @@ cd
 systemctl stop nginx
 systemctl stop xray
 ##BANNER SSH
-wget https://raw.githubusercontent.com/goenktea/installer/main/gtea && mv gtea /etc
-wget -O /usr/bin/badvpn-udpgw "https://github.com/zahwanugrah/AutoScriptSSH/raw/main/badvpn-udpgw64"
-chmod +x /usr/bin/badvpn-udpgw
-local.service
-cat > /etc/systemd/system/rc-local.service <<-END
-[Unit]
-Description=/etc/rc.local
-ConditionPathExists=/etc/rc.local
-[Service]
-Type=forking
-ExecStart=/etc/rc.local start
-TimeoutSec=0
-StandardOutput=tty
-RemainAfterExit=yes
-SysVStartPriority=99
-[Install]
-WantedBy=multi-user.target
-END
-cat > /etc/rc.local <<-END
-#!/bin/sh -e
-# rc.local
-# By default this script does nothing.
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500
-screen -dmS proxy ./usr/bin/ws-ssh -l 80 -r 127.0.0.1:447
-exit 0
-END
-chmod +x /etc/rc.local
-systemctl enable rc-local
-systemctl start rc-local.service
-echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
-sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
-
+wget -O /etc/gtea "https://github.com/berkasaink/convig-vps/raw/main/banner"
+## RC local & udpgw
+wget -O install-rc.sh "https://github.com/berkasaink/convig-vps/raw/main/rc-udpgw"
+chmod +x install-rc.sh
+bash install-rc.sh
+rm install-rc.sh
 ##installer openvpn
 cd /etc
-mv openvpn ovpnori
+rm -r openvpn
 mkdir openvpn
 cd openvpn
 wget https://github.com/goenktea/idssh.my.id/raw/main/ovpn.zip && unzip ovpn.zip
 rm ovpn.zip
 ## ws ssh
 cd
-wget -O ws-ssh https://github.com/goenktea/x86_x64/blob/main/eProxy?raw=true && chmod 744 ws-ssh && mv ws-ssh /usr/bin
-##install sslh
-apt install sslh -y
-
-cd /etc/default/
-rm sslh
-wget https://raw.githubusercontent.com/berkasaink/convig-vps/main/sslh
+wget -O /usr/bin/ws-epro "https://github.com/berkasaink/convig-vps/raw/main/ws-epro"
+chmod +x /usr/bin/ws-epro
+wget -O /etc/systemd/system/ws-epro.service "https://github.com/berkasaink/convig-vps/raw/main/ws-epro.service"
+chmod +x /etc/systemd/system/ws-epro.service
 ##configurasi stunnel4
 cd /etc/stunnel
 rm stunnel.conf
@@ -99,6 +70,7 @@ rm config.json
 wget -O config.json https://raw.githubusercontent.com/berkasaink/convig-vps/main/config-xray.json
 cd
 wget  https://www.dropbox.com/s/31kdkdqqs0h5kqu/koman.sh && bash koman.sh
+rm koman.sh
 cd /usr/bin
 mv addray v2ray-add
 mv del-vmess v2ray-delete
@@ -111,8 +83,8 @@ cd conf.d
 wget https://raw.githubusercontent.com/berkasaink/convig-vps/main/xray.conf
 cd
 mkdir -p /etc/GoenkTea
-wget -P /etc/GoenkTea https://dl.dropboxusercontent.com/s/fwe1q64q6loig7z/cert.pem
-wget -P /etc/GoenkTea https://dl.dropboxusercontent.com/s/udy4h31t77jtoeu/key.key
+wget -O /etc/GoenkTea/cert.pem "https://github.com/berkasaink/convig-vps/raw/main/cert.pem"
+wget -O /etc/GoenkTea/key.key "https://github.com/berkasaink/convig-vps/raw/main/key.key"
 cat /etc/GoenkTea/* >> /etc/GoenkTea/stunnel.pem
 systemctl restart rc-local
 systemctl restart sslh
