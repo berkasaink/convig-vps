@@ -93,3 +93,7 @@ systemctl enable xray
 systemctl start xray
 systemctl restart xray
 /etc/init.d/stunnel4 restart
+systemctl daemon-reload
+systemctl enable ws-epro
+systemctl start ws-epro
+systemctl restart ws-epro
