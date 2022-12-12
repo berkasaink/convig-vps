@@ -32,7 +32,7 @@ chmod +x /usr/bin/ws-epro
 wget -O /etc/systemd/system/ws-epro.service "https://github.com/berkasaink/convig-vps/raw/main/ws-epro.service"
 chmod +x /etc/systemd/system/ws-epro.service
 mkdir -p /usr/local/etc/ws-epro
-wget -O /usr/local/etc/ws-epro "https://github.com/berkasaink/convig-vps/raw/main/ws.yml"
+wget -O /usr/local/etc/ws-epro/ws.yml "https://github.com/berkasaink/convig-vps/raw/main/ws.yml"
 ##configurasi stunnel4
 cd /etc/stunnel
 rm stunnel.conf
