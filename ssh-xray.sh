@@ -37,6 +37,11 @@ wget -O /usr/local/etc/ws-epro/ws.yml "https://github.com/berkasaink/convig-vps/
 cd /etc/stunnel
 rm stunnel.conf
 wget https://raw.githubusercontent.com/berkasaink/convig-vps/main/stunnel.conf
+## install sslh
+apt-get install sslh -y
+cd /etc/default/
+rm sslh
+wget https://github.com/berkasaink/convig-vps/raw/main/sslh
 ## configurasi dropbeard
 cd
 apt-get install -y dropbear
