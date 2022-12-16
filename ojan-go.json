@@ -1,0 +1,33 @@
+{
+    "run_type": "server",
+    "local_addr": "127.0.0.1",
+    "local_port": 20248,
+    "remote_addr": "127.0.0.1",
+    "remote_port": 81,
+    "disable_http_check":true,
+    "log_level":5,
+    "password": [
+        "agungtrojanbatas",
+        "stb"
+    ],
+    "dns":[
+        "1.1.1.1"
+    ],
+    "transport_plugin":{
+        "enabled":true,
+        "type":"plaintext"
+    },
+    "websocket": {
+        "enabled": true,
+        "path": "/worryfree",
+        "host": "idssh.net"
+    },
+    "router": {
+        "enabled": true,
+        "block": [
+                "geoip:private"
+        ],
+        "geoip": "/usr/share/trojan-go/geoip.dat",
+        "geosite": "/usr/share/trojan-go/geosite.dat"
+    }
+}
