@@ -1,101 +1,26 @@
-#!/bin/bash
+#! /bin/bash
+rm -rf /var/log/nginx/*
 tendang
-sleep 1;
+sleep 5;
 tendang
-sleep 1;
+sleep 5;
 tendang
-sleep 1;
+sleep 5;
 tendang
-sleep 1;
+sleep 5;
 tendang
-sleep 1;
+sleep 5;
 tendang
-sleep 1;
+sleep 5;
 tendang
-sleep 1;
+sleep 5;
 tendang
-sleep 1;
+sleep 5;
 tendang
-sleep 1;
+sleep 5;
 tendang
-sleep 1;
+sleep 5;
 tendang
-sleep 1;
+sleep 5;
 tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
-tendang
-sleep 1;
+sleep 5;
