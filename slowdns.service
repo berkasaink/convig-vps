@@ -1,0 +1,10 @@
+[Unit]
+After=network.target
+
+[Service]
+ExecStart=/root/dns/dns -udp :5300 -privkey-file server.key slow.eprodev.org 127.0.0.1:22
+Type=simple
+WorkingDirectory=/root/dns
+
+[Install]
+WantedBy=default.target
