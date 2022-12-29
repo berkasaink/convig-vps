@@ -1,0 +1,12 @@
+[Unit]
+Description=/usr/bin/tendang
+ConditionPathExists=/usr/bin/tendang
+[Service]
+Type=forking
+ExecStart=/usr/bin/tendang start
+TimeoutSec=0
+StandardOutput=tty
+RemainAfterExit=yes
+SysVStartPriority=99
+[Install]
+WantedBy=multi-user.target
