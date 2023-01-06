@@ -1,11 +1,12 @@
 #!/bin/bash
-echo "1" > /var/log/nginx/error.log
-echo "1" > /var/log/nginx/access.log
-echo "1" > /root/log-limit.txt
+echo 1 > /var/log/nginx/error.log
+echo 1 > /var/log/nginx/access.log
+echo 1 > /root/log-limit.txt
 systemctl restart nginx
 systemctl restart rc-local
 systemctl restart stunnel4
 systemctl restart trojan
+systemctl restart xray
 systemctl restart ws-epro
 exptrojan
 exp-vmess
