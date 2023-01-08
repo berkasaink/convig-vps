@@ -1,16 +1,15 @@
 #!/bin/bash
-echo 1 > /var/log/syslog
-echo 1 > /var/log/btmp
+echo 1 > /var/log/apport.log
 echo 1 > /var/log/auth.log
-echo 1 > /var/log/cloud-init.log
+echo 1 > /var/log/btmp
+echo 1 > /var/log/fail2ban.log
+echo 1 > /var/log/kern.log
+echo 1 > /var/log/syslog
 echo 1 > /var/log/nginx/access.log
 echo 1 > /var/log/nginx/error.log
-echo 1 > /root/log-limit.txt
-systemctl restart nginx
-systemctl restart rc-local
-systemctl restart stunnel4
-systemctl restart trojan
-systemctl restart xray
-systemctl restart ws-epro
-exptrojan
-exp-vmess
+echo 1 > /var/log/apache2/access.log
+echo 1 > /var/log/apache2/error.log
+echo 1 > /var/log/apache2/other_vhosts_access.log
+sync; echo 1 > /proc/sys/vm/drop_caches
+sync; echo 2 > /proc/sys/vm/drop_caches
+sync; echo 3 > /proc/sys/vm/drop_caches
