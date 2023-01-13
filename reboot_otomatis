@@ -1,4 +1,19 @@
 #!/bin/bash
+#!/bin/bash
+rm -r /var/log/*
+mkdir /var/log/apache2
+mkdir /var/log/apt
+mkdir /var/log/dist-upgrade
+mkdir /var/log/install
+mkdir /var/log/journal
+mkdir /var/log/landscape
+mkdir /var/log/letsencrypt
+mkdir /var/log/lxd
+mkdir /var/log/nginx
+mkdir /var/log/openvpn
+mkdir /var/log/stunnel4
+mkdir /var/log/unattended-upgrades
+rm /root/.bash_history
 tanggal=$(date +"%m-%d-%Y")
 waktu=$(date +"%T")
 echo "Server telah berhasil direboot pada tanggal $tanggal pukul $waktu." >> /root/log-reboot.txt
