@@ -14,6 +14,7 @@ mkdir /var/log/unattended-upgrades
 systemctl restart ws-epro
 systemctl restart nginx
 systemctl restart trojan
+systemctl restart xray
 systemctl restart stunnel4
 systemctl restart sshd
 rm /root/.bash_history
