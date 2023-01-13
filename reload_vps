@@ -1,3 +1,4 @@
+#!/bin/bash
 rm -r /var/log/*
 mkdir /var/log/apache2
 mkdir /var/log/apt
