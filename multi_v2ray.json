@@ -1,0 +1,127 @@
+
+{
+    "log": {
+        "access": "/var/log/nginx/access.log",
+        "error": "/var/log/nginx/error.log",
+        "loglevel": "warning"
+    },
+    "inbound": {
+        "port": 20248,
+        "protocol": "vmess",
+        "listen": null,
+        "settings": {
+            "ip": null,
+            "udp": true,
+            "clients": [
+                {
+#user-vmess
+                    "id": "b80a5261-34d4-420f-a863-640f9e4f6b14",
+                    "alterId": 0,
+                    "security": "auto"
+                }
+            ],
+            "auth": null
+        },
+        "streamSettings": {
+            "network": "ws",
+            "kcpSettings": null,
+            "wsSettings": {
+                "connectionReuse": true,
+                "path": "/worryfree"
+            },
+            "tcpSettings": null,
+            "tlsSettings": {},
+            "security": ""
+        }
+    },
+    "inboundDetour": [
+        {
+            "port": 20258,
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+#user-vmess
+                        "id": "b80a5261-34d4-420f-a863-640f9e4f6b14",
+                        "level": 0,
+                        "security": "auto",
+                        "alterId": 0
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp"
+            }
+        },
+        {
+            "port": 20268, 
+            "protocol": "shadowsock",
+            "settings": {
+                "method": "aes-256-cfb",
+                "password": "Tanpeng123",
+                "udp": true
+            }
+        },
+        {
+            "port": 20278,
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+#user-vmess
+                        "id": "b80a5261-34d4-420f-a863-640f9e4f6b14",
+                        "level": 0,
+                        "security": "auto",
+                        "alterId": 0
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "kcp"
+            }
+        }
+    ],
+    "outbound": {
+        "protocol": "freedom",
+        "settings": {}
+    },
+    "outboundDetour": [
+        {
+            "protocol": "freedom",
+            "settings": {}
+        },
+        {
+            "protocol": "blackhole",
+            "settings": {},
+            "tag": "blocked"
+        }
+    ],
+    "routing": {
+        "strategy": "rules",
+        "settings": {
+            "rules": [
+                {
+                    "type": "field",
+                    "ip": [
+                        "0.0.0.0/8",
+                        "10.0.0.0/8",
+                        "100.64.0.0/10",
+                        "127.0.0.0/8",
+                        "169.254.0.0/16",
+                        "172.16.0.0/12",
+                        "192.0.0.0/24",
+                        "192.0.2.0/24",
+                        "192.168.0.0/16",
+                        "198.18.0.0/15",
+                        "198.51.100.0/24",
+                        "203.0.113.0/24",
+                        "::1/128",
+                        "fc00::/7",
+                        "fe80::/10"
+                    ],
+                    "outboundTag": "blocked"
+                }
+            ]
+        }
+    }
+}
