@@ -2,9 +2,9 @@
 After=network.target
 
 [Service]
-ExecStart=/etc/slowdns/slowdns -udp :5300 -privkey-file server.key slowdns-sgdo2.idssh.net 127.0.0.1:22
+ExecStart=/usr/local/etc/slowdns/slowdns -udp :5300 -privkey-file server.key slowdns-sgdo2.idssh.net 127.0.0.1:80
 Type=simple
-WorkingDirectory=/etc/slowdns
+WorkingDirectory=/usr/local/etc/slowdns
 
 [Install]
 WantedBy=default.target
