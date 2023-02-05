@@ -1,0 +1,29 @@
+#!/bin/bash
+data=( `cat /usr/local/etc/xray/config.json | grep '^###vmess' | cut -d ' ' -f 2`);
+now=`date +"%Y-%m-%d"`
+for user in "${data[@]}"
+do
+exp=$(grep -w "^###vmess $user" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 3)
+d1=$(date -d "$exp" +%s)
+d2=$(date -d "$now" +%s)
+exp2=$(( (d1 - d2) / 86400 ))
+#echo "Aktif: $user $exp"
+todaystime=`date +%s`
+if [ $d1 -ge $todaystime ] ;
+then
+timeto7days=$(( $todaystime + 604800 ))
+if [ $d1 -le $timeto7days ];
+then
+echo "Aktif: $user $exp"
+fi
+else
+echo "Expired : $user $exp"
+sed -i "/###vmess $user $exp/d" /usr/local/etc/xray/config.json
+sed -i "/vmess-$user-$exp/d" /usr/local/etc/xray/config.json
+service xray restart
+service v2ray restart
+fi
+done
+#echo "belum ada user expired"
+
+

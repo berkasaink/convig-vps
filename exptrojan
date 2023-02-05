@@ -1,0 +1,26 @@
+#!/bin/bash
+data=( `cat /root/usertrojan | cut -d ' ' -f 1`);
+now=`date +"%Y-%m-%d"`
+for user in "${data[@]}"
+do
+exp=$(grep -w "$user" "/root/usertrojan" | cut -d ' ' -f 2)
+d1=$(date -d "$exp" +%s)
+d2=$(date -d "$now" +%s)
+exp2=$(( (d1 - d2) / 86400 ))
+#echo "Aktif: $user $exp"
+todaystime=`date +%s`
+if [ $d1 -ge $todaystime ] ;
+then
+timeto7days=$(( $todaystime + 604800 ))
+if [ $d1 -le $timeto7days ];
+then
+echo "Aktif: $user $exp"
+fi
+else
+echo "Expired : $user $exp"
+sed -i "/$user $exp/d" /root/usertrojan
+sed -i "/$user/d" /usr/local/etc/trojan/config.json
+fi
+done
+service trojan restart
+
