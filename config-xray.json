@@ -17,7 +17,7 @@
     "streamSettings": {
         "network": "ws",
         "wsSettings": {
-            "path": "/worryfree",
+            "path": "/vmess",
             "headers": {
                 "Host": "v2ray.com"
             }
