@@ -1,7 +1,7 @@
 {
     "run_type": "server",
     "local_addr": "127.0.0.1",
-    "local_port": 20248,
+    "local_port": 20258,
     "remote_addr": "127.0.0.1",
     "remote_port": 81,
     "disable_http_check":true,
@@ -19,8 +19,8 @@
     },
     "websocket": {
         "enabled": true,
-        "path": "/worryfree",
-        "host": "idssh.net"
+        "path": "/trojan",
+        "host": "trojan.net"
     },
     "router": {
         "enabled": true,
