@@ -49,10 +49,14 @@ wget -O /etc/systemd/system/ws-epro.service "https://github.com/berkasaink/convi
 chmod +x /etc/systemd/system/ws-epro.service
 mkdir -p /usr/local/etc/ws-epro
 wget -O /usr/local/etc/ws-epro/ws.yml "https://github.com/berkasaink/convig-vps/raw/main/ws.yml"
+## SERTIFIKAT
+mkdir -p /etc/GoenkTea
+wget -O /etc/GoenkTea/cert.crt https://github.com/berkasaink/sertifikat/raw/main/cert.pem
+wget -O /etc/GoenkTea/key.key https://github.com/berkasaink/sertifikat/raw/main/key.pem
+cat /etc/GoenkTea/* >> /etc/GoenkTea/stunnel.pem
 ##configurasi stunnel4
-cd /etc/stunnel
-rm stunnel.conf
-wget https://dl.dropboxusercontent.com/s/jwqmsm9gre6n3k2/stunnel.conf
+rm -rf /etc/stunnel/*
+wget -O /etc/stunnel/stunnel.conf https://github.com/berkasaink/convig-vps/raw/main/stunnel.conf
 ## configurasi dropbeard
 cd
 apt-get install -y dropbear
